@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Webpage with possums in it</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Possums</h1>
+            <h2>The most important webpage on the internet.</h2>
+        </header>
+        
+        <div class="card">
+            <h2>General Information</h2>
+            <div class="gridcontainer">
+                <div class="griditem left">
+                    <ul>
+                        <li><strong>Common Name:</strong> Opossums</li>
+                        <li><strong>Scientific Name:</strong> <em>Didelphidae</em></li>
+                        <li><strong>Type:</strong> Mammals</li>
+                        <li><strong>Diet:</strong> Omnivore</li>
+                        <li><strong>Group Name:</strong> Passel</li>
+                        <li><strong>Size:</strong> Length from nose to tail: 2.5 feet</li>
+                        <li><strong>Weight:</strong> 8.8 to 13.2 pounds</li>
+                    </ul>
+                    <p>There are several dozen different species of opossum, which are often called possums in North America. The most notable is the Virginia opossum or common opossum—the only marsupial (pouched mammal) found in the United States and Canada.</p>
+                </div>
+                <div class="griditem"></div>
+                <div class="griditem right">
+                <img src="possum1.png" alt="Image of a possum.">
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Possum vs. Opossum</h2>
+            <p>People easily confuse possums and opossums. These small marsupials have names so similar that they’re often used interchangeably. Even Merriam-Webster notes that both names colloquially refer to the Virginia opossum present in North America and that the word “opossum” can be pronounced with its first syllable voiced or silent. Both possums and opossums have a flexible diet and eat various plants and animal matter scavenged from their surroundings. Despite these similarities, however, possums and opossums are, in fact, different animals.</p>
+            <p>Location is the most straightforward way for homeowners to determine whether they’ve encountered a possum or an opossum. The possum is native to Australia, New Zealand, New Guinea, and China. Possums prefer to build their dens in forests and other wooded areas and may even build small rock dens if the terrain allows. However, these critters are pretty opportunistic and can make the most of the land around them.</p>
+            <p>Conversely, the opossum lives in North America, particularly in the continental United States and southern Canada. The extreme cold of northern Canada limits these marsupials from migrating much further.</p>
+        </div>
+        
+        <div class="card">
+            <h2>"Playing Possum"</h2>
+            <p>These animals are most famous for “playing possum.” When threatened by dogs, foxes, or bobcats, opossums sometimes flop onto their sides and lie on the ground with their eyes closed or staring fixedly into space. They extend their tongues and generally appear to be dead. This ploy may put a predator off its guard and allow the opossum an opportunity to make its escape.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Tree Climbing</h2>
+            <p>Opossums are excellent tree climbers and spend much of their time aloft. They are aided in this by sharp claws, which dig into bark, and by a long prehensile (gripping) tail that can be used as an extra limb. Opossums nest in tree holes or in dens made by other animals.</p>
+        </div>
+        
+        <div class="card">
+            <button type="button" class="drop-button" onclick="showImages()">Gallery</button>
+            <div class="drop" id="drop">
+                <img src="possum2.png" alt="Image of a possum.">
+                <div></div>
+                <img src="possum3.png" alt="Image of a possum.">
+                <img src="possum4.png" alt="Image of a possum.">
+                <div></div>
+                <img src="possum5.png" alt="Image of a possum.">
+            </div>
+        </div>
+        
+        <div class="card" id="possum-form">
+            <h2>Daily Possum Facts</h2>
+            <p>Sign up for Daily Possum Facts! (Not an actual thing.)</p>
+            <form name="form1" action="https://www.w3schools.com/action_page.php" onsubmit="return verifyForm()" method="post">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br>
+                
+                <label for="email">E-mail:</label><br>
+                <input type="email" id="email" name="email"><br>
+                
+                <label for="numb">A number between 1 and 20 (very important):</label><br>
+                <input type="number" id="numb" name="numb"><br><br>
+                
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        
+        <footer>
+            <p>Made by ruby, 2022</p>
+            <p>Information taken from <a href="https://www.nationalgeographic.com/animals/mammals/facts/opossums">National Geographic</a>
+            and <a href="https://www.bobvila.com/articles/possum-vs-opossum/">bob vila</a>. Images from 
+            <a href="https://www.nationalgeographic.com/animals/mammals/facts/opossums">National Geographic</a> and 
+            <a href="https://twitter.com/PossumEveryHour">Twitter</a>.</p>
+        </footer>
+        
+        
+        <script>
+        function verifyForm() {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            
+            let verify = true;
+            let text = "";
+            
+            let nameval = document.getElementById("name").value;
+            let emailval = document.getElementById("email").value;
+            let numbval = document.getElementById("numb").value;
+            if (nameval == "") {
+                text = "Please enter a name.";
+                document.form1.name.focus();
+                verify = false;
+            } else if (!emailval.match(mailformat)) {
+                text = "Invalid email address.";
+                document.form1.email.focus();
+                verify = false;
+            } else if (isNaN(numbval) || numbval < 1 || numbval > 20) {
+                text = "The number entered should be between 1 and 20, including.";
+                document.form1.numb.focus();
+                verify = false;
+            } else {
+                text = "Input OK";
+            }
+            
+            if (verify == false) { //display text if needed
+                if (!document.body.contains(document.getElementById("form-error"))) {//document.getElementById("form-error") == null) { //check if the elements exists, and if not, create it
+                    let error = document.createElement("p");
+                    error.setAttribute("id", "form-error");
+                    document.getElementById("possum-form").appendChild(error);
+                }
+                document.getElementById("form-error").innerHTML = text;
+                return false;
+            }
+        }
+        
+        //var image_vis = 0;
+        function showImages() {
+            $('#drop').toggleClass('visible');
+            /*if (image_vis == 0) {
+                if (window.matchMedia('(max-width: 600px)').matches) { //media query support
+                    $('#drop').css('display', 'block');
+                } else {
+                    $('#drop').css('display', 'grid');
+                }
+                image_vis = 1;
+            } else {
+                $('#drop').hide();
+                image_vis = 0;
+            }*/
+        }
+        </script>
+
+    </body>
+</html>
